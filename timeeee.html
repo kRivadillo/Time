@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+<style>
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body{
+  height: 100%;
+}
+body{
+  display: grid;
+
+  background-image: url('https://cdn.donmai.us/original/8b/21/__gawr_gura_and_bloop_hololive_and_1_more_drawn_by_quasarcake__8b210dad0a6bb3e795dcad62b547efa6.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: cover;
+  
+}
+.clock{
+  background:  rgba(35, 161, 192, 0.5);
+  height: 60px;
+  
+  line-height: 60px;
+  text-align: bottom;
+  padding: 0 30px;
+  box-shadow: -3px -3px 7px rgba(255,255,255,0.05),
+               3px 3px 5px rgba(5, 45, 59, 0.5);
+}
+.clock .display{
+  font-size: 60px;
+  color: rgb(255, 255, 255);
+  letter-spacing: 5px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+</style>
+
+  <head>
+    <meta charset="utf-8">
+ 
+  </head>
+  <body>
+    <div class="clock">
+      <div class="display">
+</div>
+</div>
+<script>
+      setInterval(function(){
+        const clock = document.querySelector(".display");
+        let time = new Date();
+        let sec = time.getSeconds();
+        let min = time.getMinutes();
+        let hr = time.getHours();
+        let day = 'AM';
+        if(hr > 12){
+          day = 'PM';
+          hr = hr - 12;
+        }
+        if(hr == 0){
+          hr = 12;
+        }
+        if(sec < 10){
+          sec = '0' + sec;
+        }
+        if(min < 10){
+          min = '0' + min;
+        }
+        if(hr < 10){
+          hr = '0' + hr;
+        }
+        clock.textContent = hr + ':' + min + ':' + sec + " " + day;
+      });
+    </script>
+
+  </body>
+</html>
+
